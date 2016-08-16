@@ -16,8 +16,6 @@ def MD5(pwd):
 
 def zucp(sn='',key=''):
     pwd=''
-#    sn='SDK-TAP-010-00005'
-#    key='741852'
     snkey=sn+key
     pwd=MD5(snkey).upper()
     Old_url = 'http://sdk2.zucp.net:8060/webservice.asmx/balance?'
@@ -32,8 +30,6 @@ def zucp(sn='',key=''):
 
 
 def weimi(uid,key):
-#    uid='xDZh0F3lHAgC'
-#    key='8c998hq4'
     url='http://api.weimi.cc/2/account/balance.html'+'?type=json&uid=%s&pas=%s' % (uid,key)
     resp = requests.get(url)
     resp=eval(resp.content)
@@ -41,16 +37,12 @@ def weimi(uid,key):
 
 
 def webchinese(uid,key):
-#    uid='dixi'
-#    key='83ec537098c9c414c732'
     url='http://sms.webchinese.cn/web_api/SMS/?Action=SMS_Num&Uid=%s&Key=%s' % (uid,key)
     resp = requests.get(url)
     print int(resp.content)
 
 
 def dhst(uid,key):
- #   uid='dh52761'
-  #  key='fN%~^*7X'
     pwd=MD5(key)
     message='''<?xml version="1.0" encoding="UTF-8"?><message><account>'''+uid+"</account><password>"+pwd+"</password></message>"
     message='''<message><account>'''+uid+"</account><password>"+pwd+"</password></message>"
@@ -67,8 +59,7 @@ def dhst(uid,key):
 
 
 def itrigo(uid,key):
-    uid='caifuzhimen'
-    key='caifuzhimen'
+
     url='http://221.122.112.136:8080/sms/mm.jsp?uid=%s&pwd=%s' % (uid,key)
     resp=requests.get(url)
     number=resp.content.split('||')
@@ -79,8 +70,6 @@ def itrigo(uid,key):
 
 
 def zyer(uid,key):
-#    uid='qilerong0611'
-#    key='qilerong0611'
     pwd=MD5(key)[8:24]
     url='http://sdk.zyer.cn/SmsService/SmsService.asmx/GetBalance?LoginName=%s&Password=%s&SmsKind=808' % (uid,pwd)
     resp=requests.get(url)
@@ -91,8 +80,6 @@ def zyer(uid,key):
     else:
         print 0
 def emay(uid,key):
-    uid='9SDK-EMY-0999-JEUQR'
-    key='959754'
     url='http://sdk999ws.eucp.b2m.cn:8080/sdkproxy/querybalance.action?cdkey=%s&password=%s' % (uid,key)
     resp=requests.get(url)
     mat=re.match(r'(.*)<message>(.*)</message>',resp.content.strip('\n\r'))
