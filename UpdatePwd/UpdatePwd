@@ -100,4 +100,4 @@ if  __name__=='__main__':
                 t=MyThread(hostname)
                 t.start()
     except Exception,e:
-        color_print(e,'red')
+        color_print(e,'red',True)
