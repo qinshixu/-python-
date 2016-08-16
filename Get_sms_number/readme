@@ -1,0 +1,4 @@
+1.获取配置文件/var/CreditCloud/config/SMSConfig.xml 中的配置内容
+2.调用相应短信服务商的短信数接口
+3.得到短信剩余数，可以整合于zabbix中
+
